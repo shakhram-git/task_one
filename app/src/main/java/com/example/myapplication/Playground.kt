@@ -19,7 +19,7 @@ fun decryptData(
     if (discount < 1 || discount > 99) throw IllegalArgumentException("Discount should be beyond 1 to 99")
     if (offset < 0) throw IllegalArgumentException("Offset should be positive or zero")
     if (readLength <= 0) throw IllegalArgumentException("Read length should be positive")
-    val result = prices.drop(1).take(3).map {
+    val result = prices.drop(offset).take(readLength).map {
         it * discount / 100
     }
     return result
